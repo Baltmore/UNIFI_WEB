@@ -1,0 +1,26 @@
+﻿@page
+@model WebUNIFI.Pages.Products.ProductsModel
+@{
+}
+
+<br>
+<h2>List of products with total orders</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Productos</th>
+            <th>Ordenes Totales</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Values from the base -->
+        @foreach (var item in Model.listProducts)
+        {
+            <tr>
+                <td>@item.productName</td>
+                <td>@item.totalOrders</td>
+            </tr>
+        }
+    </tbody>
+</table>

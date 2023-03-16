@@ -1,0 +1,7 @@
+You need to download AdventureWorksLT2019 database.
+After that, Install the database in your Microsoft SQL as a restored of the database.
+Then yo need to replace your connection string in 3 places:
+  1 - Into Index.cshtml on String connectionString = " your string connection".
+  2 - Into Orders.cshtml on String connectionString = " your string connection".
+  3 - Into Products.cshtml on String connectionString = " your string connection".
+And finally you can try the project.

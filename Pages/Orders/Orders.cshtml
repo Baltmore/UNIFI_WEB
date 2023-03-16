@@ -1,0 +1,67 @@
+﻿@page
+@model WebUNIFI.Pages.Orders.OrdersModel
+@{
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>AdventureWorksLT2019 Order Form</title>
+</head>
+<body>
+   
+    <form id="form1" runat="server">
+     
+        <div>
+          
+            <h2>Order Form</h2>
+           
+            <label for="product">Product:</label>
+            <!-- The "select" tag creates a drop-down list for selecting a product -->
+            <select name="product" id="product">
+                @foreach (var item in Model.listOrders)
+                {
+                 
+                    <option value=" ">@item.productName</option>
+                   
+                }
+            </select>
+            <br /><br />
+            <label for="quantity">Quantity:</label>
+            <!-- The "input" tag defines an input field for user input -->
+            <input type="number" name="quantity" id="quantity" min="1" max="100" required /><br /><br />
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required /><br /><br />
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required /><br /><br />
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required /><br /><br />
+            <a class="btn btn-primary btn-sm" href='/Orders/Create'>Add</a>
+           
+        </div>
+    </form>
+    <br>
+    <h2>List with orders</h2>
+
+    <!-- The "table" tag creates a table for displaying data -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Products</th>
+                <th>details</th>
+            </tr>
+        </thead>
+        <!-- The "tbody" tag groups the table rows containing the order details -->
+        <tbody>
+            @foreach (var item in Model.listOrders)
+            {
+                <!-- The "tr" tag creates a table row for each order -->
+                <tr>
+                    <td>@item.productName</td>
+                    <td>@item.productDescription</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

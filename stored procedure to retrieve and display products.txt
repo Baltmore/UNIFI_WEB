@@ -1,0 +1,12 @@
+CREATE PROCEDURE dbo.GetProductDetails
+AS
+BEGIN
+    SELECT p.Name, p.ListPrice, SUM(pi.Quantity) AS TotalQuantity
+    FROM SalesLT.Product AS p
+    JOIN SalesLT.ProductInventory AS pi ON p.ProductID = pi.ProductID
+    GROUP BY p.Name, p.ListPrice
+END
+
+
+
+EXEC dbo.GetProductDetails

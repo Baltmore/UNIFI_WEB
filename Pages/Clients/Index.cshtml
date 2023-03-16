@@ -1,0 +1,29 @@
+﻿@page
+@model WebUNIFI.Pages.Clients.IndexModel
+@{
+}
+
+<br>
+<h2>List of customers with email addresses</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Email address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Values from the base -->
+        @foreach(var item in Model.listClients)
+        {
+            <tr>
+                <td>@item.CustomerID</td>
+                <td>@item.FirstName</td>
+                <td>@item.EmailAddress</td>
+            </tr>
+        }
+    </tbody>
+</table>
